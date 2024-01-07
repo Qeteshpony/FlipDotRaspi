@@ -1,0 +1,14 @@
+[Unit]
+Description=powerbutton
+
+[Service]
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/env python3 /home/qetesh/flipdot/powerbutton/power.py
+Restart=on-failure
+RestartSec=5s
+User=root
+Group=root
+SyslogIdentifier=powerbutton
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,19 @@
+[Unit]
+Description=light
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Environment=PYTHONUNBUFFERED=1
+Environment=PATH=/home/qetesh/.virtualenvs/FlipDotRaspi3.11:$PATH
+ExecStart=/home/qetesh/.virtualenvs/FlipDotRaspi3.11/bin/python /home/qetesh/flipdot/light/light.py
+Restart=on-failure
+RestartSec=5s
+RuntimeDirectory=light
+RuntimeDirectoryPreserve=yes
+User=light
+Group=light
+SyslogIdentifier=light
+
+[Install]
+WantedBy=default.target
